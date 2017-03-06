@@ -1,1 +1,442 @@
-hello world
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<style>/*
+ * https://bitbucket.org/kevinburke/markdowncss
+ *
+ * Copyright 2011 Kevin Burke unless otherwise noted.
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *   you may not use this file except in compliance with the License.
+ *   You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ *
+ *   Some content is copyrighted by Twitter, Inc., and also released under an
+ *   Apache License; these sections are noted in the source.
+ */
+body{
+    margin: 0 auto;
+    font-family: Georgia, Palatino, serif;
+    color: #444444;
+    line-height: 1;
+    max-width: 960px;
+    padding: 30px;
+}
+h1, h2, h3, h4 {
+    color: #111111;
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5, p {
+    margin-bottom: 24px;
+    padding: 0;
+}
+h1 {
+    font-size: 48px;
+}
+h2 {
+    font-size: 36px;
+    /* The bottom margin is small. It's designed to be used with gray meta text
+     * below a post title. */
+    margin: 24px 0 6px;
+}
+h3 {
+    font-size: 24px;
+}
+h4 {
+    font-size: 21px;
+}
+h5 {
+    font-size: 18px;
+}
+a {
+    color: #0099ff;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+a:hover {
+    text-decoration: none;
+    color: #ff6600;
+}
+a:visited {
+    color: purple;
+}
+ul, ol {
+    padding: 0;
+    margin: 0;
+}
+li {
+    line-height: 24px;
+}
+li ul, li ul {
+    margin-left: 24px;
+}
+p, ul, ol {
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 540px;
+}
+pre {
+    padding: 0px 24px;
+    max-width: 800px;
+    white-space: pre-wrap;
+}
+code {
+    font-family: Consolas, Monaco, Andale Mono, monospace;
+    line-height: 1.5;
+/*    font-size: 13px;*/
+}
+aside {
+    display: block;
+    float: right;
+    width: 390px;
+}
+blockquote {
+    border-left:.5em solid #eee;
+    padding: 0 2em;
+    margin-left:0;
+    max-width: 476px;
+}
+blockquote  cite {
+    font-size:14px;
+    line-height:20px;
+    color:#bfbfbf;
+}
+blockquote cite:before {
+    content: '\2014 \00A0';
+}
+
+blockquote p {  
+    color: #666;
+    max-width: 460px;
+}
+hr {
+    width: 540px;
+    text-align: left;
+    margin: 0 auto 0 0;
+    color: #999;
+}
+
+/* Code below this line is copyright Twitter Inc. */
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+button, input {
+  line-height: normal;
+  *overflow: visible;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+input[type=checkbox], input[type=radio] {
+  cursor: pointer;
+}
+/* override default chrome & firefox settings */
+input:not([type="image"]), textarea {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+label,
+input,
+select,
+textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: normal;
+  margin-bottom: 18px;
+}
+input[type=checkbox], input[type=radio] {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+input[type=text],
+input[type=password],
+textarea,
+select {
+  display: inline-block;
+  width: 210px;
+  padding: 4px;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  height: 18px;
+  color: #808080;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+select, input[type=file] {
+  height: 27px;
+  line-height: 27px;
+}
+textarea {
+  height: auto;
+}
+
+/* grey out placeholders */
+:-moz-placeholder {
+  color: #bfbfbf;
+}
+::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+
+input[type=text],
+input[type=password],
+select,
+textarea {
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+  outline: none;
+  border-color: rgba(82, 168, 236, 0.8);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/* buttons */
+button {
+  display: inline-block;
+  padding: 4px 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  background-color: #0064cd;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+  background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
+  background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -o-linear-gradient(top, #049cdb, #0064cd);
+  background-image: linear-gradient(top, #049cdb, #0064cd);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid #004b9a;
+  border-bottom-color: #003f81;
+  -webkit-transition: 0.1s linear all;
+  -moz-transition: 0.1s linear all;
+  transition: 0.1s linear all;
+  border-color: #0064cd #0064cd #003f81;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+button:hover {
+  color: #fff;
+  background-position: 0 -15px;
+  text-decoration: none;
+}
+button:active {
+  -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+</style>
+</head>
+<body>
+<h1 id="L............">联系方式</h1>
+
+<ul>
+<li>手机：13265679730</li>
+<li>Email：<a href="&#109;&#x61;&#x69;&#x6c;&#116;&#111;&#x3a;&#x61;&#x74;&#x6d;&#x73;&#x68;&#x61;&#x6e;&#x67;&#x40;&#103;&#109;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">&#97;&#x74;&#109;&#x73;&#x68;&#x61;&#110;&#x67;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;</a></li>
+<li>QQ/微信号：460239821</li>
+</ul>
+
+
+<hr />
+
+<h1 id="L............">个人信息</h1>
+
+<ul>
+<li>贺子骄/男/1993</li>
+<li>本科/邵阳学院/信息工程系/计算机科学与技术</li>
+<li>工作年限：2年</li>
+<li><p>GitHub：<a href="http://github.com/atmshang">http://github.com/atmshang</a></p></li>
+<li><p>期望职位：Android高级程序员</p></li>
+<li>期望薪资：税前月薪11k~13k</li>
+<li>期望城市：深圳</li>
+</ul>
+
+
+<hr />
+
+<h1 id="L............">工作经历</h1>
+
+<h2 id="L......................................2015...8......2017...3.......">深圳市汉优科技有限公司 （ 2015年8月 ~ 2017年3月 ）</h2>
+
+<h3 id="L............">控糖管家</h3>
+
+<p>与医院合作的糖尿病院外管理服务平台的安卓版医生段&amp;患者端，对于患者，实现了患者的档案录入与展示、风险预判、健康预警并提供来自医生的控糖方案，对于医生，实现了患者管理与远程干预以及医生间的学术交流，同时接入动态血糖仪硬件，并为大数据展示和决策平台提供血糖数据与地理分布
+ - 责任&amp;技术描述
+   - 安卓端
+     - Android端的框架搭建以及文档的编写
+     - IM即时通讯与实时推送以及APP统计分析功能的集成
+     - 接入BLE的动态血糖仪硬件
+     - 第三方支付的集成
+     - 对接接口根据设计稿完成主要功能(Retrofit+Gson)
+     - 后续收尾以及BUG修改
+   - 大数据展厅（虚拟部分，为无法亲自前来参观的客户提供临场体验）
+     - 使用unity自建低模呈现大数据展厅在应用内
+     - 使用陀螺仪与屏幕按钮实现场景漫游
+     - 将大数据的H5页面通过实时纹理的方式展现在游戏内的屏幕中，并实现交互</p>
+
+<h3 id="L......">优糖</h3>
+
+<p>与动态血糖仪配套的安卓客户端
+ - 责任&amp;技术描述
+   - Android端的框架搭建、文档的编写以及独立功能的SDK的编写
+   - 根据硬件工程师提供的算法通过BLE从硬件获取数据
+   - 血糖数据的本地数据库存储与数据库结构更新的代码编写（基于Realm的ORM数据库）
+   - 血糖数据图表化展示(基于MPAndroidChart)
+   - 血糖数据增量上传到服务器(OKhttp3)</p>
+
+<h3 id="L......">门锁</h3>
+
+<p>与智能门锁硬件商以及房地产商合作的基于安卓的智能门锁的安卓端应用
+ - 责任&amp;技术描述
+   - 基于AnyRTC实现手机与门锁上智能设备的实时视频、语音
+   - 接入极光推送实现呼叫事件的推送
+   - 与同事完成主要界面</p>
+
+<h3 id="L.....................................amp.............">深圳青少年俱乐部管理平台&amp;体育有约</h3>
+
+<p>与深圳市文体旅游局以及深圳市体育协会合作推出的公众体育相关的两个应用
+ - 责任&amp;技术描述
+    - （体育有约）作为产品经理与深圳市体育协会进行多次沟通，确认需求，以及初版完成后阶段功能迭代的商讨
+    - （体育有约）使用Microsoft Project进行项目进度管理
+    - （体育有约）使用Axure RP制作原型设计，使用Unity3D的2D部分快速开发完整交互流程的纯展示APP
+    - Android端的框架搭建、文档的编写
+    - 接入高德地图用于场馆展示
+    - Material design风格的动态界面制作
+    - 对接接口根据设计稿完成主要功能</p>
+
+<h3 id="L............">超能健身</h3>
+
+<p>无人值守的智能硬件健身房的配套安卓应用、游戏以及PC端
+- 责任&amp;技术描述
+  - 安卓端
+    - 接入蓝牙体脂称、人体成分分析仪
+    - 第三方登陆与支付
+    - 完成同事剩下的琐碎页面的制作与后期BUG修改
+  - PC端
+    - 熟悉与了解老旧的基于winForm健身房营销与管理程序的代码
+    - 将主要界面按照全新的设计稿重写成WPF并保留原有功能
+  - 硬件娱乐相关
+    - 使用Unity3d为动感单车、跑步机上内置的安卓平板编写符合运动场景的小游戏
+    - 使用局域网的UDP广播从设备获取游戏操作的输入</p>
+
+<h3 id="L............">动吖健康</h3>
+
+<p>外包合作项目
+- 责任&amp;技术描述
+  - 内嵌2D游戏
+  - 手机设备的计步实现
+  - 商城页面的制作与接口对接</p>
+
+<hr />
+
+<h1 id="L........................">主要安卓技能清单</h1>
+
+<ul>
+<li>够用的数据结构与算法知识</li>
+<li>熟练使用四大组件与各种布局</li>
+<li>万物基于RecyclerView</li>
+<li>熟练使用大量第三方开源库</li>
+<li>熟练接入各种SDK，能快速上手未用过的SDK</li>
+<li>具备自定义简单View的能力</li>
+<li>蓝牙、串口、Socket的使用</li>
+<li>熟练使用Win10、OS X、Ubuntu下的Android Studio</li>
+</ul>
+
+
+<h1 id="L..................">其他技能清单</h1>
+
+<p>以下均为我熟练使用的技能</p>
+
+<ul>
+<li>编程语言：Java/C#</li>
+<li>应用开发：Android/WPF/Xamarin</li>
+<li>游戏开发：Unity/VR/AR</li>
+<li>后端开发：Spring Boot</li>
+<li>数据库相关：Realm/SQLite/MySQL/H2 Database</li>
+<li>版本管理：Git</li>
+<li>单元测试：JUnit4/Monkey</li>
+<li>云和开放平台：SAE/BAE/AWS</li>
+<li>英语：CET4</li>
+</ul>
+
+
+<h2 id="L.....................">参考技能关键字</h2>
+
+<ul>
+<li>android</li>
+<li>java</li>
+<li>restful</li>
+<li>json</li>
+<li>unity3d</li>
+<li>socket</li>
+<li>bluetooth</li>
+<li>serial port</li>
+<li>git</li>
+<li>lbs</li>
+</ul>
+
+
+<hr />
+
+<h1 id="L......">致谢</h1>
+
+<p>感谢您花时间阅读我的简历，期待能有机会和您共事。</p>
+</body>
+</html>
